@@ -175,7 +175,7 @@
       class = "interpolation-image"
         alt="3D-aware object edits for diffusion images."/>
       <h2 class="subtitle has-text-centered">
-The input image is first reconstructed with a depth-to-image diffusion model. The user-supplied 3D transform is then applied to the depth map and activations. The transformed depth and activations are then used to guide the diffusion model and perform the 3D-aware edit to the input image. </h2>
+The input image is first reconstructed with a depth-to-image diffusion model. The user-supplied 3D transform is then applied to the depth map and activations. The transformed depth and activations are used to guide the diffusion model and perform the 3D-aware image edit. </h2>
     </div>
   </div>
 </section>
@@ -230,8 +230,11 @@ The input image is first reconstructed with a depth-to-image diffusion model. Th
 
         <br>
         
-        <h3 class="title is-4">3D-aware Edits</h3>
+        <h3 class="title is-4">Qualitative Results and Comparisons</h3>
         <div class="content has-text-centered">
+          <p>We evaluate our method with respect to three baselines (<a href="https://prior.allenai.org/projects/object-edit">Object 3DIT</a>, <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Song_ObjectStitch_Object_Compositing_With_Diffusion_Model_CVPR_2023_paper.pdf">ObjectStitch</a> and <a href="https://zero123.cs.columbia.edu/">Zero-1-2-3</a>) on two datasets. The <b><i>PhotoGen</i></b> dataset consists of <b>31</b> edits in <b>26</b> images (five of the images have two different edits) that we either generated, photographed, or licensed and downloaded. In the <b><i>Benchmark</i></b> dataset we aim at minimizing our (the author's) bias in the choice of images and edits. It consists of <b>50</b> edits in <b>50</b> images (one edit per image) that we generated with a depth-to-image diffusion model using depth from synthetic 3D scenes. The carousel below provides a sample of qualitative results from <i>PhotoGen</i>. </p> 
+          <p> The full results along with all qualitative comparisons with baselines can be found are linked here: <a href="./static/full-results/qualitative_comparison_main.html">PhotoGen</a> and <a href="./static/full-results/qualitative_comparison_benchmark.html">Benchmark</a>. 
+          </p>
         </div>
         <div class="hero-body">
           <div class="container">
@@ -241,37 +244,37 @@ The input image is first reconstructed with a depth-to-image diffusion model. Th
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/shoe.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/potted_plant_screen.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/wine_screen.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/real_car.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/plane_screen.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/guitar_screen.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
               </div>
-              <div class="item item d-flex justify-content-center">
+              <div class="item d-flex justify-content-center">
                 <img src="./static/result-images/building_screen.png"
                 class = "interpolation-image"
                   alt="3D-aware object edits for diffusion images."/>
@@ -371,34 +374,30 @@ The input image is first reconstructed with a depth-to-image diffusion model. Th
 
 
     <!-- Concurrent Work. -->
-<!--    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
 
   </div>
 </section>
+
+<section class="section">
+<div class="columns is-centered">
+  <div class="column is-full-width has-text-centered">
+    <h2 class="title is-4">References</h2>
+
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://prior.allenai.org/projects/object-edit">Object 3DIT</a> is a language-guided model for 3D-aware image editing.
+      </p>
+      <p>
+        <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Song_ObjectStitch_Object_Compositing_With_Diffusion_Model_CVPR_2023_paper.pdf">ObjectStitch</a> is a generative object compositing method which we adapt for object-level editing on scenes.
+      </p>
+      <p>
+        <a href="https://zero123.cs.columbia.edu/">Zero-1-2-3</a> is a diffusion-based novel-view synthesis method which we use in conjunction with inpainting to perform object-level 3D-aware image editing.
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+<!--/ Concurrent Work. -->
 
 
 <!--<section class="section" id="BibTeX">
