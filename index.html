@@ -40,6 +40,22 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+<style>
+  table { 
+      table-layout:fixed;
+      width:100%;
+  }
+  img {
+      max-height:100%;
+      max-width:100%;
+  }
+  thead th {
+      top: 0;
+      position: sticky;
+      z-index: 20;
+      background-color: white;
+  }
+  </style>
 <body>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -87,10 +103,10 @@
               <a>Anonymous Authors</a></span>
           </div>
 
-          <div class="column has-text-centered">
+<!--         <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-              <span class="link-block">
+<!--              <span class="link-block">
                 <a href="https://openreview.net/forum?id=GcVn9HdimC&noteId=GcVn9HdimC"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -101,7 +117,7 @@
               </span>
             </div>
 
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -170,12 +186,7 @@
         
     <h2 class="title is-3">3D-Aware Editing Results</h2>
 
-
-    <p>(See comparison to the state-of-the-art on images with <a href="./static/full-results/qualitative_comparison_main.html">estimated depth</a> & <a href="./static/full-results/qualitative_comparison_benchmark.html">synthetic depth</a>.)
-    </p>
-
     <!-- Main Results. -->
-    <br/>
     <div id="results-carousel" class="carousel results-carousel">
       <div class="item d-flex justify-content-center">
         <img src="./static/result-images/toaster_screen.png"
@@ -219,8 +230,66 @@
       </div>
     </div>
 
+    <!-- Comparisons. -->
+    <br/>
+    <h2 class="title is-3">Comparison to the State-of-the-Art</h2>
+    <table>
+      <thead>
+          <tr>
+              <th>Input</th>
+              <th>Target Edit</th>
+              <th>Ours</th>
+              <th>Obj. Stitch</th>
+              <th>Zero123</th>
+              <th>3DIT</th>
+          </tr>
+      </thead>
+      <tbody>
+          
+          <tr>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_input.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_edit.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_ours.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_objstitch.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_zero123.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/sunflower_2_3dit.png"></td>
+          </tr>
+          
+          <tr>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_input.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_edit.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_ours.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_objstitch.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_zero123.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_jet_3dit.png"></td>
+          </tr>
+          
+          <tr>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_input.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_edit.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_ours.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_objstitch.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_zero123.png"></td>
+              <td><img src="static/full-results/images/qualitative_comparison_main/outputorig_red_car_3dit.png"></td>
+          </tr>
+      </tbody>
+    </table>
+    <p>(Comparison to the state-of-the-art on a much larger set of images are available here for images with <a href="./static/full-results/qualitative_comparison_main.html">estimated depth</a> & <a href="./static/full-results/qualitative_comparison_benchmark.html">synthetic depth</a>.)
+    </p>
+    <br/>
+    <p style="text-align: left; font-size: smaller;">
+      <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Song_ObjectStitch_Object_Compositing_With_Diffusion_Model_CVPR_2023_paper.pdf">ObjectStitch</a> is a generative object compositing method which we adapt for object-level editing on scenes.
+      <br/>
+      <a href="https://zero123.cs.columbia.edu/">Zero-1-2-3</a> is a diffusion-based novel-view synthesis method which we use in conjunction with inpainting to perform object-level 3D-aware image editing.
+      <br/>
+      <a href="https://prior.allenai.org/projects/object-edit">Object 3DIT</a> is a language-guided model for 3D-aware image editing.
+    </p>
+    <br/>
+
+    
     <!-- Interpolation 1. -->
     <br/>
+    <h2 class="title is-3">Frame-by-Frame Interpolation</h2>
     <div class="columns is-vcentered interpolation-panel">
       <div class="column is-3 has-text-centered">
         <img src="./static/interpolated-car/0.png"
@@ -310,7 +379,7 @@
   </div>
 </section>
 
-<section class="section" style="background-color:#f7f7f7">
+<!-- <section class="section" style="background-color:#f7f7f7">
 <div class="columns is-centered">
   <div class="column is-full-width has-text-centered">
     <h2 class="title is-4">References</h2>
@@ -328,7 +397,8 @@
     </div>
   </div>
 </div>
-</section>
+</section> -->
+
 <!--/ Concurrent Work. -->
 
 
